@@ -4,20 +4,30 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.ConfigManager;
 
-public class GooglePage {
-    private WebDriver driver;
+import java.time.Duration;
+
+public class GooglePage extends BasePage{
     @FindBy(id = "APjFqb")
     public WebElement txtSearch;
     @FindBy(name = "btnK")
     public WebElement btnSearch;
-    public GooglePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver,this);
+
+    public GooglePage() {
+        super(driver);
     }
-    public void enterSearch(String search){
-        this.txtSearch.sendKeys(search);
-        this.btnSearch.click();
+    public void navigateToGoogle() {
+        navigateTo(ConfigManager.getProperty("baseURL"));
+    }
+    public void writeSearch(String search){
+        writeToElememt(txtSearch,search);
+    }
+
+    public void clickSearch(){
+        clickElement(btnSearch);
     }
     public void resultSearch(String search){
 

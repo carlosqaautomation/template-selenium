@@ -11,17 +11,16 @@ import page.GooglePage;
 import utils.ConfigManager;
 
 public class GoogleSteps {
-    private WebDriver driver;
-    private GooglePage googlePage;
+    private GooglePage googlePage = new GooglePage();
 
     public void openBrowser(){
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.get(ConfigManager.getProperty("baseURL"));
-        googlePage = new GooglePage(driver);
+        googlePage.navigateToGoogle();
     }
     public void searchText(String search){
-        googlePage.enterSearch(search);
-        googlePage.resultSearch(search);
+       googlePage.writeSearch(search);
+    }
+
+    public void clickText(){
+        googlePage.clickSearch();
     }
 }

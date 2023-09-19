@@ -20,11 +20,11 @@ public class StepDefinitionGoogle {
     @When("ingreso {string} en el campo de búsqueda")
     public void ingreso_en_el_campo_de_búsqueda(String searchQuery) {
         googleSteps.searchText(searchQuery);
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @When("hago clic en el botón de búsqueda")
     public void clickButton(){
+        googleSteps.clickText();
     }
 
     @Then("veo resultados de búsqueda relacionados con {string}")
