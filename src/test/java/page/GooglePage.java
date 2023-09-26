@@ -16,12 +16,13 @@ public class GooglePage extends BasePage{
     @FindBy(name = "btnK")
     public WebElement btnSearch;
 
+    @FindBy(xpath = "//h2[@data-attrid='title']")
+    public WebElement txtResult;
+
     public GooglePage() {
         super(driver);
     }
-    public void navigateToGoogle() {
-        navigateTo(ConfigManager.getProperty("baseURL"));
-    }
+
     public void writeSearch(String search){
         writeToElememt(txtSearch,search);
     }
@@ -29,8 +30,8 @@ public class GooglePage extends BasePage{
     public void clickSearch(){
         clickElement(btnSearch);
     }
-    public void resultSearch(String search){
-
+    public String resultSearch(){
+       return getTotext(txtResult);
     }
 
 }

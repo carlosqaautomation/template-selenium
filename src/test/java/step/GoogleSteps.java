@@ -13,9 +13,7 @@ import utils.ConfigManager;
 public class GoogleSteps {
     private GooglePage googlePage = new GooglePage();
 
-    public void openBrowser(){
-        googlePage.navigateToGoogle();
-    }
+
     public void searchText(String search){
        googlePage.writeSearch(search);
     }

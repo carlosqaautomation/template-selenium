@@ -5,16 +5,18 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.chrome.ChromeDriver;
 import page.GooglePage;
+import step.BaseSteps;
 import step.GoogleSteps;
 import utils.ConfigManager;
 
 public class StepDefinitionGoogle {
 
     GoogleSteps googleSteps = new GoogleSteps();
+    BaseSteps baseSteps = new BaseSteps();
 
-    @Given("que estoy en la página de Google")
+    @Given("ingreso a la página de Google")
     public void openBrowser(){
-        googleSteps.openBrowser();
+        baseSteps.openBrowser();
     }
 
     @When("ingreso {string} en el campo de búsqueda")
@@ -29,7 +31,7 @@ public class StepDefinitionGoogle {
 
     @Then("veo resultados de búsqueda relacionados con {string}")
     public void resultSearch(String result){
-
+        baseSteps.validateResult(result);
     }
 
 
