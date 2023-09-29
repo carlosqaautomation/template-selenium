@@ -25,4 +25,8 @@ public class RegisterSteps {
     public void ingresarConContraseña(String contraseña){
         registerPage.ingresarCoContraseña(contraseña);
     }
+
+    public void personalDetail(){
+        registerPage.personalDetails();
+    }
 }

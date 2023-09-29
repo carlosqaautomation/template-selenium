@@ -41,4 +41,9 @@ public class StepDefinitionRegister {
         registerSteps.ingresarConContraseña(contraseña);
     }
 
+    @When("Ingreso mis datos personales")
+    public void ingreso_mis_datos_personales() {
+        registerSteps.personalDetail();
+    }
+
 }

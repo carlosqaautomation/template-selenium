@@ -8,3 +8,4 @@ Feature: Crear cuenta
     And  Ingreso el correo "prueba@gmail.com"
     And Ingreso la contraseña "Testing123"
     And Ingreso la confirmacion de contraseña "Testing123"
+    When Ingreso mis datos personales
