@@ -24,6 +24,18 @@ public class RegisterPage extends BasePage{
     public WebElement txtPhoneNumber;
     @FindBy(xpath = "//select[@name='countryListboxRegisterPage']")
     public WebElement selectCountry;
+    @FindBy(xpath = "//input[@name='cityRegisterPage']")
+    public WebElement txtCity;
+    @FindBy(xpath = "//input[@name='addressRegisterPage']")
+    public WebElement txtAddress;
+    @FindBy(xpath = "//input[@name='state_/_province_/_regionRegisterPage']")
+    public WebElement txtProvince;
+    @FindBy(xpath = "//input[@name='postal_codeRegisterPage']")
+    public WebElement txtPostalCode;
+    @FindBy(xpath = "//input[@name='i_agree']")
+    public WebElement cbkTerms;
+    @FindBy(id = "register_btn")
+    public WebElement btnRegister;
 
     public RegisterPage() {
         super(driver);
@@ -56,17 +68,25 @@ public class RegisterPage extends BasePage{
         writeToElememt(txtConfirmPassword,user);
     }
 
-    public void personalDetails(){
-        writeToElememt(txtFirstName,"Carlos");
-        writeToElememt(txtLastName,"Zambrano");
-        writeToElememt(txtPhoneNumber,"987654321");
-        address();
+    public void personalDetails(String nombre, String apellido, String celular){
+        writeToElememt(txtFirstName,nombre);
+        writeToElememt(txtLastName,apellido);
+        writeToElememt(txtPhoneNumber,celular);
+    }
+    public void address(String pais, String ciudad, String direccion, String provincia, String codigo){
+        selectFromDropdownByText(selectCountry,pais);
+        writeToElememt(txtCity,ciudad);
+        writeToElememt(txtAddress,direccion);
+        writeToElememt(txtProvince,provincia);
+        writeToElememt(txtPostalCode,codigo);
     }
 
-    public void address(){
-        selectFromDropdownByText(selectCountry,"Peru");
+    public void termsAndCondition(){
+        clickElement(cbkTerms);
     }
 
-
+    public void registerAccount(){
+        clickElement(btnRegister);
+    }
 
 }

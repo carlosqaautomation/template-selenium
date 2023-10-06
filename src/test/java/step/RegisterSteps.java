@@ -26,7 +26,19 @@ public class RegisterSteps {
         registerPage.ingresarCoContraseña(contraseña);
     }
 
-    public void personalDetail(){
-        registerPage.personalDetails();
+    public void personalDetail(String nombre, String apellido, String celular){
+        registerPage.personalDetails(nombre, apellido, celular);
+    }
+
+    public void adressPerson(String pais, String ciudad, String direccion, String provincia, String codigo){
+        registerPage.address(pais,ciudad,direccion,provincia,codigo);
+    }
+
+    public void termsAndCondition(){
+        registerPage.termsAndCondition();
+    }
+
+    public void registerAccount(){
+        registerPage.registerAccount();
     }
 }
