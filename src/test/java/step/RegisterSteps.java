@@ -1,5 +1,6 @@
 package step;
 
+import org.junit.Assert;
 import page.RegisterPage;
 
 public class RegisterSteps {
@@ -40,5 +41,15 @@ public class RegisterSteps {
 
     public void registerAccount(){
         registerPage.registerAccount();
+    }
+
+    public void validateResult(){
+        Assert.assertTrue("Usuario no existe",registerPage.validateExistUser());
+    }
+
+    public void validateText(String text){
+        System.out.println(text+" texto esperado");
+        System.out.println(registerPage.validateText()+" Texto actual");
+        Assert.assertEquals(text,registerPage.validateText());
     }
 }

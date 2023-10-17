@@ -2,6 +2,7 @@ package glue;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import step.BaseSteps;
 import step.RegisterSteps;
@@ -89,5 +90,17 @@ public class StepDefinitionRegister {
     public void registro_una_cuenta() {
         registerSteps.registerAccount();
     }
+
+    @Then("valido que exista el usuario")
+    public void valido_que_exista_el_usuario() {
+        registerSteps.validateResult();
+    }
+
+    @Then("valido que el usuario {string} este registrado")
+    public void valido_que_el_usuario_este_registrado(String usuario) {
+        registerSteps.validateText(usuario);
+    }
+
+
 
 }

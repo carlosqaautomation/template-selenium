@@ -37,13 +37,24 @@ public class RegisterPage extends BasePage{
     @FindBy(id = "register_btn")
     public WebElement btnRegister;
 
+    @FindBy(css = "label.smollMargin.invalid")
+    public WebElement lblMessageUser;
+
+    @FindBy(css = "span.hi-user.containMiniTitle.ng-binding")
+    public WebElement lblUser;
+
     public RegisterPage() {
         super(driver);
     }
 
     public void navigatePage(){
-        clickElement(btnUser);
-        clickElement(btnCreateNewUser);
+        try{
+            clickElement(btnUser);
+            clickElement(btnCreateNewUser);
+        }
+        catch (Exception e){
+            System.out.println("ERROR: Fallo la navegacion");
+        }
     }
 
     public void accountDetails(String user,String email, String password, String confirmPassword){
@@ -87,6 +98,13 @@ public class RegisterPage extends BasePage{
 
     public void registerAccount(){
         clickElement(btnRegister);
+    }
+    public boolean validateExistUser(){
+        return elementIsDisplayed(lblMessageUser);
+    }
+
+    public String validateText(){
+        return getTotext(lblUser);
     }
 
 }

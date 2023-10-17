@@ -35,6 +35,9 @@ public class BasePage {
         driver.get(url);
     }
 
+    public static void closeBrowser(){
+        driver.close();
+    }
     private WebElement findElement(WebElement locator){
         return wait.until(ExpectedConditions.visibilityOf(locator));
     }
@@ -63,4 +66,9 @@ public class BasePage {
     public void rightClick(WebElement locator){
         action.contextClick(findElement(locator));
     }
+
+    public boolean elementIsDisplayed(WebElement locator){
+        return findElement(locator).isDisplayed();
+    }
+
 }
